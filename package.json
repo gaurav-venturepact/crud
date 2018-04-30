@@ -18,5 +18,11 @@
   "homepage": "https://github.com/gaurav-venturepact/crud#readme",
   "devDependencies": {
     "dotenv": "^5.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "mongoose": "^5.0.16"
   }
 }
