@@ -11,17 +11,17 @@ exports.userGetAdmin = async function(req, res){
 
 exports.userPostAdmin = async function(req, res){
 
-    console.log('Post user data');
-    var newUser = new userInfo();
-    newUser.firstName = req.body.firstName;
-    newUser.lastName = req.body.lastName;
-    newUser.email = req.body.email;
-    
-    newUser.save(function(err, insertedData){
-        if (err){
-            console.log('Error saving video');
-        } else{
-            res.json(insertedData);
-        }
+    console.log(req.body);
+
+    new userInfo({
+        "firstName" : req.body.firstName,
+        "lastName" : req.body.lastName,
+        "email" : req.body.email
+    }).save(function(err, doc){
+        if (err) res.send(err)
+        else {
+            res.json(doc);
+            console.log("Successfully inserted");
+        } 
     });
 }
