@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
+import { UserDataService } from './user-data.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent {
   firstName: string = '';
   email: string = '';
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private userDetail:UserDataService){
     this.rForm = fb.group({
       'firstName': [null, Validators.required],
       'lastName':'',
@@ -31,4 +32,17 @@ export class AppComponent {
 
     console.log(post);
   }
+
+  data: any;
+
+  showData() {
+    this.userDetail.getUser()
+      .subscribe(data =>  {
+        this.data = data
+      });
+
+      console.log(this.data);
+  }
+
+
 }
