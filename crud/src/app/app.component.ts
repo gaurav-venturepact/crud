@@ -25,12 +25,18 @@ export class AppComponent {
     });
   }
 
+  usersdata = [];
   addPost(post){
     this.firstName = post.firstName;
     this.lastName = post.lastName;
     this.email = post.email;
 
     console.log(post);
+
+    this.userDetail.saveUser(post)
+    .subscribe(userPost => {
+      this.usersdata.push(userPost);
+    });
   }
 
   data: any;

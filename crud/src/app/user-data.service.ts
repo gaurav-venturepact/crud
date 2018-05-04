@@ -10,4 +10,8 @@ export class UserDataService {
     return this.http.get('http://localhost:3000/api/userGetAdmin/');
   }
 
+  saveUser(post){
+    return this.http.post('http://localhost:3000/api/postUser/',{post});
+  }
+
 }
