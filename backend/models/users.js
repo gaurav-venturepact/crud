@@ -7,7 +7,7 @@ var adminUserSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String
-});
+}, { versionKey: false });
 
 var AdminUser = mongoose.model('AdminUser', adminUserSchema);
 

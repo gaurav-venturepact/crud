@@ -11,17 +11,20 @@ exports.userGetAdmin = async function(req, res){
 
 exports.userPostAdmin = async function(req, res){
 
-    console.log(req.body);
+    console.log(req.body.post);
+        if (req.body.post){
 
-    new userInfo({
-        "firstName" : req.body.firstName,
-        "lastName" : req.body.lastName,
-        "email" : req.body.email
-    }).save(function(err, doc){
-        if (err) res.send(err)
-        else {
-            res.json(doc);
-            console.log("Successfully inserted");
-        } 
-    });
+            new userInfo({
+                "firstName" : req.body.post.firstName,
+                "lastName" : req.body.post.lastName,
+                "email" : req.body.post.email
+            }).save(function(err, doc){
+                if (err) res.send(err)
+                else {
+                    res.json(doc);
+                    console.log("Successfully inserted");
+                } 
+            });
+
+        }   
 }
