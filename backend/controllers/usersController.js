@@ -17,7 +17,8 @@ exports.userPostAdmin = async function(req, res){
             new userInfo({
                 "firstName" : req.body.post.firstName,
                 "lastName" : req.body.post.lastName,
-                "email" : req.body.post.email
+                "email" : req.body.post.email,
+                "password": req.body.post.password
             }).save(function(err, doc){
                 if (err) res.send(err)
                 else {

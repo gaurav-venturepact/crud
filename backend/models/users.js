@@ -6,7 +6,8 @@ Promise.promisifyAll(mongoose);
 var adminUserSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
-    email: String
+    email: String,
+    password: String
 }, { versionKey: false });
 
 var AdminUser = mongoose.model('AdminUser', adminUserSchema);
